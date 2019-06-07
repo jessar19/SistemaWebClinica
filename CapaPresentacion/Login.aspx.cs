@@ -23,6 +23,7 @@ namespace CapaPresentacion
             if (objEmpleado != null)
             {
                 Response.Write("<script> alert('USUARIO CORRECTO.') </script>");
+                Response.Redirect("PanelGeneral.aspx");
             }
             else
                 Response.Write("<script> alert('USUARIO INCORRECTO.') </script>");
