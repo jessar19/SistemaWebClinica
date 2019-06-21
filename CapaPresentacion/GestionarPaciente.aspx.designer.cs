@@ -10,7 +10,7 @@
 namespace CapaPresentacion {
     
     
-    public partial class frmGestionarPaciente {
+    public partial class GestionarPaciente {
         
         /// <summary>
         /// txtNroDocumento control.
@@ -40,13 +40,13 @@ namespace CapaPresentacion {
         protected global::System.Web.UI.WebControls.TextBox txtApPaterno;
         
         /// <summary>
-        /// txtApaterno control.
+        /// txtApMaterno control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtApaterno;
+        protected global::System.Web.UI.WebControls.TextBox txtApMaterno;
         
         /// <summary>
         /// ddlSexo control.

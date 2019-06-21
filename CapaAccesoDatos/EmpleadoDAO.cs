@@ -47,14 +47,16 @@ namespace CapaAccesoDatos
                     //crear conexion
                     conexion = Conexion.getInstance().ConexionBD();
 
-                    //crear comando (enviar comando)
-                    cmd = new SqlCommand("spAccesoSistema", conexion);
+                //crear comando (enviar comando)
+                cmd = new SqlCommand("spAccesoSistema", conexion)
+                {
 
                     //indicar el tipo de comando 
-                    cmd.CommandType = CommandType.StoredProcedure;
+                    CommandType = CommandType.StoredProcedure
+                };
 
-                    //enviar paramentros a store procedure
-                    cmd.Parameters.AddWithValue("@prmUser", user);
+                //enviar paramentros a store procedure
+                cmd.Parameters.AddWithValue("@prmUser", user);
                     cmd.Parameters.AddWithValue("@prmPass", pass);
 
                     conexion.Open();
@@ -63,15 +65,17 @@ namespace CapaAccesoDatos
 
                     if (dr.Read())
                     {
-                        objEmpleado = new Empleado();
+                    objEmpleado = new Empleado
+                    {
                         //convertir string  a entero.
 
-                        objEmpleado.ID = Convert.ToInt32(dr["idEmpleado"].ToString());
+                        ID = Convert.ToInt32(dr["idEmpleado"].ToString()),
 
-                        objEmpleado.Usuario = dr["usuario"].ToString();
+                        Usuario = dr["usuario"].ToString(),
 
-                        objEmpleado.Clave = dr["clave"].ToString();
-                    }
+                        Clave = dr["clave"].ToString()
+                    };
+                }
 
 
                 }

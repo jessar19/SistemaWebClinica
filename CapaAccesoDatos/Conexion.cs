@@ -32,9 +32,11 @@ namespace CapaAccesoDatos
 
         public SqlConnection ConexionBD()
         {
-            SqlConnection conexion = new SqlConnection();
-            conexion.ConnectionString = "Data Source=(local); Initial Catalog=DBClinica_test;"
-             + "Integrated Security=SSPI;";
+            SqlConnection conexion = new SqlConnection
+            {
+                ConnectionString = "Data Source=(local); Initial Catalog=DBClinica_test;"
+             + "Integrated Security=SSPI;"
+            };
             return conexion;
         }
     }
