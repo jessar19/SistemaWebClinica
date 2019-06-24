@@ -60,5 +60,55 @@ namespace CapaAccesoDatos
             }
             return response;
         }
+
+        public List<Paciente> ListarPacientes()
+        {
+            List<Paciente> Lista = new List<Paciente>();
+            SqlConnection con = null;
+            SqlCommand cmd = null;
+            SqlDataReader dr = null; 
+
+            try
+            {
+                con = Conexion.getInstance().ConexionBD();
+                cmd = new SqlCommand("spListarPacientes", con);
+                cmd.CommandType = CommandType.StoredProcedure;
+                con.Open();
+                dr = cmd.ExecuteReader();
+
+                while (dr.Read())
+                {
+                       // Crear objetos de tipo Paciente
+                       Paciente objPaciente = new Paciente();
+                       objPaciente.IdPaciente = Convert.ToInt32(dr["idPaciente"].ToString());
+                       objPaciente.Nombres = dr["nombres"].ToString();
+                       objPaciente.ApPaterno = dr["apPaterno"].ToString();
+                       objPaciente.ApMaterno = dr["apMaterno"].ToString();
+                       objPaciente.Edad = Convert.ToInt32(dr["edad"].ToString());
+                       objPaciente.Sexo = Convert.ToChar(dr["sexo"].ToString());
+                       objPaciente.NroDocumento = dr["nroDocumento"].ToString();
+                       objPaciente.Direccion = dr["direccion"].ToString();
+                       objPaciente.Estado = true;
+                
+
+                    //anadir a la lista de objetos
+                    Lista.Add(objPaciente);
+                    
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+
+            }
+            finally
+            {
+                con.Close();
+
+            }
+
+            return Lista;
+        }
     }
 }

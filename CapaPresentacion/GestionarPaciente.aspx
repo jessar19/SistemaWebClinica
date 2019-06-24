@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Home.Master" AutoEventWireup="true" CodeBehind="GestionarPaciente.aspx.cs" Inherits="CapaPresentacion.GestionarPaciente" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+   
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contentBody" runat="server">
     <section class="content-header">
@@ -86,5 +87,39 @@
                 </tr>
             </table>
         </div>
+        <br />
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="box box-primary">
+                     <div class="box-header">
+                         <h3 class="box-title">Lista de Pacientes</h3>
+                     </div> 
+                     <div class="box-body table-responsive">
+                         <table id="tbl_pacientes" class ="table table-bordered">
+                             <thead>
+                                 <tr>
+                                     <th>Codigo</th>
+                                     <th>Nombres</th>
+                                     <th>Apellidos</th>
+                                     <th>Sexo</th>
+                                     <th>Edad</th>
+                                     <th>Direccion</th>
+                                     <th>Estado</th>
+                                 </tr>
+                             </thead>
+                              <tbody id="tbl_body_table">
+                                 <!--Data por medio de ajax -->
+                              </tbody>
+                         </table>
+                     </div> 
+                </div>
+            </div>
+        </div>
     </section>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
+    <script src="js/paciente.js" type="text/javascript">
+    
+    </script>
 </asp:Content>
