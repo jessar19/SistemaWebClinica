@@ -35,7 +35,7 @@ namespace CapaAccesoDatos
 
             //metodo para acceso al sistema
 
-            public Empleado AccesoSistema(String user, String pass)
+        public Empleado AccesoSistema(String user, String pass)
             {
                 SqlConnection conexion = null;
                 SqlCommand cmd = null;
@@ -96,7 +96,7 @@ namespace CapaAccesoDatos
 
 
             }
-
-
-        }
-    }
+        
+       
+   }
+}

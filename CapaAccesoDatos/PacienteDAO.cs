@@ -110,5 +110,36 @@ namespace CapaAccesoDatos
 
             return Lista;
         }
+
+        public bool Actualizar(Paciente objPaciente)
+        {
+            bool ok = false;
+            SqlConnection conexion = null;
+            SqlCommand cmd = null;
+            try
+            {
+                conexion = Conexion.getInstance().ConexionBD();
+                cmd = new SqlCommand("spActualizarDatosPaciente", conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@prmIdPaciente", objPaciente.IdPaciente);
+                cmd.Parameters.AddWithValue("@prmDireccion", objPaciente.Direccion);
+
+                conexion.Open();
+                cmd.ExecuteNonQuery();
+
+                ok = true;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+
+            }
+            return ok;
+        }
     }
 }
